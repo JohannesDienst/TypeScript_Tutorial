@@ -3,10 +3,12 @@
         "module": "commonjs",
         "target": "ES6",
         "noImplicitAny": false,
-        "rootDir": "./src/ts",
+        "rootDir": "./src",
         "outDir": "./src/js",
         "sourceMap": false,
-        "removeComments": true
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
     },
     "exclude": [
         "node_modules"

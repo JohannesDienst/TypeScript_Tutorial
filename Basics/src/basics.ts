@@ -10,9 +10,11 @@ let aGenericArray :Array<number> = [4,5,6];
 enum Color {Red, Green, Blue};
 let c :Color = Color.Green;
 let notSure: any = 4;
+notSure = 'I am undecided';
 
 let tuple: [string, number];
 tuple = ["Hello", 42];
+tuple = ["Hi", 42, 27, "Joe"];
 
 // Function returning never must have unreachable end point
 function error(message: string): never {
@@ -46,6 +48,7 @@ class TinyThing {
     name :string;
     protected weight :number;
     private age :number;
+    readonly color? :string;
 }
 
 function printRobotInfo(robot :Robot) {
@@ -86,6 +89,7 @@ window.onmousedown = function(mouseEvent) {
 interface MortalInterface {
     age :number;
     new (age :number);
+    
 }
 
 class Mortal implements MortalInterface {

@@ -4,7 +4,8 @@
   "description": "TypeScript Code TypeScript Series in JavaMagazin",
   "main": "src/js/app.js",
   "devDependencies": {
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "tslint": "latest"
   },
   "scripts": {
     "watch:tsc": "./node_modules/.bin/tsc -w",
