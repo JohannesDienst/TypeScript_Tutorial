@@ -13,6 +13,7 @@
     "start": "node src/js/app.js"
   },
   "dependencies": {
+    "@types/whatwg-fetch": "0.0.32"
   },
   "author": "Johannes Dienst",
   "license": "MIT"
