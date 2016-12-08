@@ -1,14 +1,14 @@
 "use strict";
 
-let isDone :boolean = false;
-let decimal :number = 6;
-let color :string = 'berlin';
+let isDone: boolean = false;
+let decimal: number = 6;
+let color: string = 'berlin';
 
-let aArray :number[] = [1, 2, 3];
-let aGenericArray :Array<number> = [4,5,6];
+let aArray: number[] = [1, 2, 3];
+let aGenericArray: Array<number> = [4,5,6];
 
 enum Color {Red, Green, Blue};
-let c :Color = Color.Green;
+let c: Color = Color.Green;
 let notSure: any = 4;
 notSure = 'I am undecided';
 
@@ -22,46 +22,46 @@ function error(message: string): never {
 }
 
 interface Robot {
-    name :string;
-    model? :number;
-    isDiscontinued? :boolean;
-    readonly color? :string;
-    sayName() :void;
+    name: string;
+    model?: number;
+    isDiscontinued?: boolean;
+    readonly color?: string;
+    sayName(): void;
 }
 
 class C3PO implements Robot {
-    name :string;
+    name: string;
 
     constructor(name :string) {
         this.name = name;
     }
 
-    sayName() :void {
+    sayName(): void {
         alert(this.name);
     }
 }
 
-let myC3PO :Robot = new C3PO("Zoe");
+let myC3PO: Robot = new C3PO("Zoe");
 myC3PO.isDiscontinued = true;
 
 class TinyThing {
-    name :string;
-    protected weight :number;
-    private age :number;
-    readonly color? :string;
+    name: string;
+    protected weight: number;
+    private age: number;
+    readonly color?: string;
 }
 
-function printRobotInfo(robot :Robot) {
+function printRobotInfo(robot: Robot) {
     console.log(robot.name);
     console.log(robot.model);
 }
 
 interface LameFunc {
-    () :void;
+    (): void;
 }
 
-let funcType :LameFunc;
-let funcType2 :(robot)=>void;
+let funcType: LameFunc;
+let funcType2: (robot)=>void;
 
 funcType = printRobotInfo; // Error: Wrong function type
 funcType2 = printRobotInfo;
@@ -87,26 +87,26 @@ window.onmousedown = function(mouseEvent) {
 
 // Static and instance side???
 interface MortalInterface {
-    age :number;
-    new (age :number);
-    
+    age: number;
+    new (age: number);
+
 }
 
 class Mortal implements MortalInterface {
-    age :number;
-    constructor(age :number) { }
+    age: number;
+    constructor(age: number) { }
 }
 
 interface HumanConstructor {
-    new (age :number) :HumanInterface;
+    new (age: number): HumanInterface;
 }
 interface HumanInterface {
-    age :number;
+    age: number;
 }
 
 class Human implements HumanInterface {
-    age :number;
-    constructor(age :number) {
+    age: number;
+    constructor(age: number) {
         this.age = age;
     }
 }
@@ -116,4 +116,3 @@ function createHuman(ctor :HumanConstructor, age :number) :HumanInterface {
 }
 
 let dijkstra = createHuman(Human, 86);
-

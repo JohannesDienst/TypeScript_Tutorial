@@ -1,6 +1,6 @@
 "use strict";
 
-function getPromise() :Promise<string>{
+function getPromise(): Promise<string>{
     return new Promise<string>((resolve, reject) => {
         resolve("Hello Amelie");
     });
