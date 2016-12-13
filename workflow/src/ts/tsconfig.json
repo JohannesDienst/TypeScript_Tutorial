@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6",
+        "noImplicitAny": false,
+        "rootDir": ".",
+        "outDir": "../js",
+        "sourceMap": false,
+        "removeComments": true
+    },
+    "compileOnSave": false,
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "JavaMagazin_Workflow_Example",
+  "version": "1.0.0",
+  "description": "Workflow example",
+  "main": "index.js",
+  "contributors": [
+    "Johannes Dienst <info@johannesdienst.net>"
+  ],
+  "devDependencies": {
+    "browser-sync": "^2.17.6",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "node-sass": "^3.12.4",
+    "nodemon": "^1.9.2",
+    "npm-run-all": "^3.1.1",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.9",
+    "webpack": "^1.13.3"
+  },
+  "scripts": {
+    "deploy:webpack": "./node_modules/webpack/bin/webpack.js src/js/app.js src/js/app_bundle.js",
+    "watch:webpack": "nodemon --verbose -w src/js/app.js --on-change-only -d 1 --exec \"npm run deploy:webpack\"",
+    "deploy:tsc": "./node_modules/typescript/bin/tsc -p ./src/ts",
+    "watch:tsc": "nodemon --verbose -w src/ts/ --on-change-only -d 1 -e ts --exec \"npm run deploy:tsc\"",
+    "build:css": "node-sass --include-path src/scss src/scss/default.scss src/css/default.css",
+    "deploy:static-resources": "npm-run-all build:css",
+    "watch:static-resources": "nodemon --verbose -w src/scss/ --on-change-only -d 1 -e \"scss\" --exec \"npm run deploy:static-resources\"",
+    "watch": "npm-run-all -s -p watch:tsc watch:static-resources watch:webpack",
+    "test:unit": "./node_modules/mocha/bin/mocha src/js/unittests/**/*",
+    "lint": "npm-run-all -s lint:ts",
+    "lint:ts": "tslint -e **/definitions/**/* -e **/*.d.ts -c src/ts/tslint.json src/ts/**/*.ts || true",
+    "serve": "browser-sync start --config bs-config.js",
+    "kill": "npm-run-all -s kill:npm kill:nodemon",
+    "kill:nodemon": "pkill -f nodemon",
+    "kill:npm": "pkill -f npm"
+  },
+  "dependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/jquery": "^2.0.34",
+    "@types/mocha": "^2.2.33"
+  },
+  "license": "MIT"
+}
